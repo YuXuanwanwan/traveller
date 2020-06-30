@@ -2,7 +2,8 @@
   <div class="hotelList">
     <a-layout>
         <a-layout-content style="min-width: 800px">
-          <a-spin :spinning="hotelListLoading">
+            <filter-box></filter-box>
+            <a-spin :spinning="hotelListLoading">
             <div class="card-wrapper">
                 <HotelCard :hotel="item" v-for="item in hotelList" :key="item.index" @click.native="jumpToDetails(item.id)"></HotelCard>
                 <div v-for="item in emptyBox" :key="item.name" class="emptyBox ant-col-xs-7 ant-col-lg-5 ant-col-xxl-3">
@@ -16,12 +17,13 @@
 </template>
 <script>
 import HotelCard from './components/hotelCard'
+import filterBox from "./components/filterBox";
 import { mapGetters, mapActions, mapMutations } from 'vuex'
 
 export default {
   name: 'home',
   components: {
-    HotelCard
+    HotelCard,filterBox
   },
   data(){
     return{
@@ -34,7 +36,11 @@ export default {
   computed: {
     ...mapGetters([
       'hotelList',
-      'hotelListLoading'
+      'hotelListLoading',
+
+        'filterHotelList',
+
+        'hotelListParams'
     ])
   },
   methods: {
@@ -43,7 +49,8 @@ export default {
       'set_hotelListLoading'
     ]),
     ...mapActions([
-      'getHotelList'
+      'getHotelList',
+        'addRegionFilter'
     ]),
 
     pageChange(page, pageSize) {

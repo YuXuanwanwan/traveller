@@ -13,6 +13,7 @@
     </select>
 
 
+
     <resultMap id="Coupon" type="com.example.hotel.po.Coupon">
         <result column="description" property="description"></result>
         <result column="id" property="id"></result>

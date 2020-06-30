@@ -50,7 +50,7 @@ const columns = [
       scopedSlots: { customRender: 'price'}
     },
     {
-      title: 'Action',
+      title: '操作',
       key: 'action',
       scopedSlots: { customRender: 'action' },
     },

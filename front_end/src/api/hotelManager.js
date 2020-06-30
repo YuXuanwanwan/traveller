@@ -16,3 +16,36 @@ export function addHotelAPI(data) {
         data,
     })
 }
+export function mgrHotelListAPI(id) {
+    return axios({
+        url: `${api.hotelPre}/${id}/hotelMgr`,
+        method: 'GET',
+    })
+}
+export function submitManageHotelParamsAPI(data){
+    return axios({
+        url: `${api.hotelPre}/${data.id}/hotelInfo/update`,
+        method: 'POST',
+        data,
+    })
+}
+
+export function submitManagePriceParamsAPI(data){
+    return axios({
+        url: `${api.hotelPre}/${data.id}/hotelInfo/updatePrice`,
+        method: 'POST',
+        data,
+    })
+}
+
+export function submitManageNumParamsAPI(data){
+    return axios({
+        url: `${api.hotelPre}/${data.id}/hotelInfo/updateNum`,
+        method: 'POST',
+        data,
+    })
+}
+
+
+
+

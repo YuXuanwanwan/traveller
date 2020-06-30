@@ -1,6 +1,7 @@
 package com.example.hotel.bl.user;
 
 import com.example.hotel.po.User;
+import com.example.hotel.util.ServiceException;
 import com.example.hotel.vo.*;
 
 /**
@@ -39,6 +40,15 @@ public interface AccountService {
      * @return
      */
     ResponseVO updateUserInfo(int id, String password,String username,String phonenumber);
+
+    /**
+     * 扣除信用值
+     * @param id
+     * @param credit
+     * @return
+     * @author lzh
+     */
+    ResponseVO minusCredit(int id,double credit) throws ServiceException;
 
 
 }

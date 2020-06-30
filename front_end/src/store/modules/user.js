@@ -120,6 +120,12 @@ const user = {
                 message.error('撤销失败')
             }
         },
+        userCommentGet:async() => {
+            const res = true;
+            if(res){
+                message.success('评价成功')
+            }
+        },
         logout: async({ commit }) => {
             removeToken()
             resetRouter()

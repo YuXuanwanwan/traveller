@@ -19,24 +19,22 @@
                      <a-icon type="switcher" />酒店管理
                 </router-link>
             </a-menu-item>
-            <a-menu-item key="4" @click="selectMenu" v-if="userInfo.userType=='Admin'">
+            <a-menu-item key="4" @click="selectMenu" v-if="userInfo.userType=='Manager'">
                 <router-link :to="{ name: 'manageUser'}">
-                     <a-icon type="user" />账户管理
+                     <a-icon type="user" />管理
                 </router-link>
             </a-menu-item>
         </a-menu>
         <div class="logout">
             <a-dropdown placement="bottomCenter">
                 <div class="user">
-                    <a-avatar src="./defaultAvatar.png"></a-avatar>
+                    <a-avatar src="https://lililizi.oss-cn-beijing.aliyuncs.com/%E4%B8%89%E6%98%8E%E6%B2%BB.png"></a-avatar>
                     <span style="font-size: 14px">{{ userInfo.userName }}</span>
                     <a-icon style="margin-left: 3px; font-size: 16px" type="down"></a-icon>
                 </div>
                 <a-menu slot="overlay">
-                <a-menu-item  @click="jumpToHome()">
-                    <a-icon type="home"></a-icon>
-                    首页
-                </a-menu-item>
+                    
+
                 <a-menu-item @click="jumpToUserInfo()">
                     <a-icon type="profile"></a-icon>
                     我的信息
@@ -95,7 +93,7 @@ export default {
             this.$router.push({ name: 'userInfo', params: { userId: this.userId } })
         },
         jumpToHome() {
-
+            
         }
     }
 }

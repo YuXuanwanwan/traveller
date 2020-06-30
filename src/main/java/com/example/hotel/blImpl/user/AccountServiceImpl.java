@@ -3,6 +3,7 @@ package com.example.hotel.blImpl.user;
 import com.example.hotel.bl.user.AccountService;
 import com.example.hotel.data.user.AccountMapper;
 import com.example.hotel.po.User;
+import com.example.hotel.util.ServiceException;
 import com.example.hotel.vo.UserForm;
 import com.example.hotel.vo.ResponseVO;
 import com.example.hotel.vo.UserVO;
@@ -24,6 +25,7 @@ public class AccountServiceImpl implements AccountService {
         BeanUtils.copyProperties(userVO,user);
         try {
             accountMapper.createNewAccount(user);
+           // System.out.println(userVO.getUserType());
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return ResponseVO.buildFailure(ACCOUNT_EXIST);
@@ -57,6 +59,12 @@ public class AccountServiceImpl implements AccountService {
             System.out.println(e.getMessage());
             return ResponseVO.buildFailure(UPDATE_ERROR);
         }
+        return ResponseVO.buildSuccess(true);
+    }
+
+    @Override
+    public ResponseVO minusCredit(int id, double credit) throws ServiceException {
+        accountMapper.minusCredit(id,credit);
         return ResponseVO.buildSuccess(true);
     }
 }

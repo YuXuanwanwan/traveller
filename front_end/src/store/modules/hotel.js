@@ -2,7 +2,11 @@ import { message } from 'ant-design-vue'
 import store from '@/store'
 import {
     getHotelsAPI,
-    getHotelByIdAPI
+    getHotelByIdAPI,
+    searchHotelsAPI,
+    filterHotelsAPI,
+    priceSortAPI,
+    rateSortAPI
 } from '@/api/hotel'
 import {
     reserveHotelAPI
@@ -16,6 +20,8 @@ const hotel = {
         hotelList: [
             
         ],
+        rankAll:true,
+        typeAll:true,
         hotelListParams: {
             pageNo: 0,
             pageSize: 12
@@ -29,6 +35,11 @@ const hotel = {
         currentOrderRoom: {
 
         },
+        addRegion:{
+            address:'南京',
+            bizRegion:'XiDan'
+        },
+        bizRegion:'XiDan',
         orderMatchCouponList: [
 
         ]
@@ -36,6 +47,15 @@ const hotel = {
     mutations: {
         set_hotelList: function(state, data) {
             state.hotelList = data
+        },
+        set_addRegion: function(state, data){
+            state.addRegion = data
+        },
+        set_rankAll: function(state, data) {
+            state.rankAll = data
+        },
+        set_typeAll: function(state, data) {
+            state.typeAll= data
         },
         set_hotelListParams: function(state, data) {
             state.hotelListParams = {
@@ -77,6 +97,51 @@ const hotel = {
                 commit('set_hotelListLoading', false)
             }
         },
+        filterHotelList:async({commit, state,dispatch},data) => {
+
+            const res = await searchHotelsAPI(state.addRegion)
+            if(res){
+                dispatch('filterHotelList2',data)
+                commit('set_hotelListLoading', false)
+            }
+
+        },
+        filterHotelList2:async({commit, state},data) => {
+
+            const res = await filterHotelsAPI(data)
+            if(res){
+                commit('set_hotelList',res)
+            }
+
+        },
+        priceSort:async({commit, state},data) => {
+
+            const res = await priceSortAPI()
+            if(res){
+                commit('set_hotelList', res)
+                commit('set_hotelListLoading', false)
+            }
+
+        },
+        rateSort:async({commit, state},data) => {
+
+            const res = await rateSortAPI()
+            if(res){
+                commit('set_hotelList', res)
+                commit('set_hotelListLoading', false)
+            }
+
+        },
+        addRegionFilter:async({commit, state}) => {
+            console.log("data",state.addRegion)
+            const res = await searchHotelsAPI(state.addRegion)
+            if(res){
+                commit('set_hotelList', res)
+                commit('set_hotelListLoading', false)
+            }
+
+        },
+
         getHotelById: async({commit, state}) => {
             const res = await getHotelByIdAPI({
                 hotelId: state.currentHotelId

@@ -77,7 +77,10 @@ CREATE TABLE `Hotel` (
 
 BEGIN;
 /*!40000 ALTER TABLE `Hotel` DISABLE KEYS */;
-INSERT INTO `Hotel` VALUES (1,'汉庭酒店','欢迎您入住',NULL,'XiDan','Four',1829373819,4.8,1),(2,'儒家酒店','欢迎您入住','南京市鼓楼区珠江路268号','XiDan','Four',1829373819,4.8,2),(3,'桂圆酒店','欢迎您入住','南京市栖霞区珠江路268号','XiDan','Four',1829553719,4.8,6);
+INSERT INTO `Hotel` VALUES (1,'汉庭酒店(新街口地铁站店)','南京市鼓楼区管家桥47号','南京','新街口','Three',1829373819,3.8,1),(2,'如家酒店(新街口中心店)','南京市秦淮区淮海路36号','南京','新街口','Four',1829373819,4.4,1),(3,'金陵饭店','南京市新街口汉中路2号','南京','新街口','Five',1829373819,4.9,1),(4,'南大国际会议中心','
+南京市栖霞区仙林大道163号','南京','仙林中心','Five',1829553719,4.9,6),(5,'七天酒店(浦东国际机场店)','
+上海市浦东新区川沙路3488号','浦东新区','浦东机场','Three',1829553719,4.1,6),(6,'苏州W酒店','
+苏州市星港街与苏惠路交叉口苏州中心7栋','苏州','东方之门','Five',1829553719,4.7,6);
 /*!40000 ALTER TABLE `Hotel` ENABLE KEYS */;
 COMMIT;
 
@@ -139,7 +142,7 @@ CREATE TABLE `Room` (
 
 BEGIN;
 /*!40000 ALTER TABLE `Room` DISABLE KEYS */;
-INSERT INTO `Room` VALUES (2,199,20,20,1,'BigBed'),(3,299,30,30,1,'DoubleBed'),(4,399,10,10,1,'Family'),(5,122,7,0,1,'BigBed'),(6,399,10,10,2,'Family');
+INSERT INTO `Room` VALUES (1,199,20,20,1,'BigBed'),(2,299,30,30,1,'DoubleBed'),(3,399,10,10,1,'Family'),(4,399,10,10,2,'Family'),(5,699,30,30,3,'DoubleBed'),(6,599,20,20,3,'BigBed'),(7,399,20,20,4,'BigBed'),(8,499,30,30,4,'DoubleBed'),(9,399,10,10,5,'Family'),(10,999,10,10,6,'Family');
 /*!40000 ALTER TABLE `Room` ENABLE KEYS */;
 COMMIT;
 
@@ -168,7 +171,7 @@ CREATE TABLE `User` (
 
 BEGIN;
 /*!40000 ALTER TABLE `User` DISABLE KEYS */;
-INSERT INTO `User` VALUES (4,'1012681@qq.com','123456','测试一号','12345678919',100,'Client'),(5,'123@qq.com','123456','测试二号','12345678911',100,'Client'),(6,'333@qq.com','123456',NULL,NULL,NULL,'HotelManager');
+INSERT INTO `User` VALUES (1,'hm1@qq.com','123456','酒店管理1','1829373819',100,'HotelManager'),(4,'wm1@qq.com','123456','网站管理','12345678919',100,'Manager'),(5,'user1@qq.com','123456','客户1','12345678911',100,'Client'),(6,'hm2@qq.com','123456','酒店管理2','1829553719',100,'HotelManager');
 /*!40000 ALTER TABLE `User` ENABLE KEYS */;
 COMMIT;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

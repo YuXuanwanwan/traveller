@@ -27,3 +27,47 @@ export function cancelOrderAPI(orderId) {
         method: 'GET',
     })
 }
+export function deleteOrderAPI(id) {
+    return axios({
+        url: `${api.orderPre}/${id}/deleteOrder`,
+        method: 'POST',
+    })
+}
+export function checkInAPI(id) {
+    return axios({
+        url: `${api.orderPre}/${id}/checkin`,
+        method: 'GET',
+    })
+}
+export function checkOutAPI(id) {
+    return axios({
+        url: `${api.orderPre}/${id}/checkout`,
+        method: 'GET',
+    })
+}
+
+export function abnormalOrdersOfTheDayAPI(hotelId) {
+    console.log('33')
+
+    return axios({
+        url: `${api.orderPre}/abnormalOrdersOfTheDay`,
+        method: 'GET',
+        params: {hotelId: hotelId},
+    })
+}
+
+export function managedHotelOrdersAPI(hotelId) {
+    return axios({
+        url: `${api.orderPre}/managedOrders`,
+        method: 'GET',
+        params: {hotelId: hotelId},
+    })
+}
+
+export function submitCheckOutDateParamsAPI(data){
+    return axios({
+        url: `${api.orderPre}/${data.id}/orderInfo/updateCheckout`,
+        method: 'POST',
+        data,
+    })
+}

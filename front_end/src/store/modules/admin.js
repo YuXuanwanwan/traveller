@@ -6,6 +6,13 @@ import { message } from 'ant-design-vue'
 
 const admin = {
     state: {
+        userInfo1:{
+            email:'',
+            password:'',
+            id:'',
+            type:'',
+            phone:''
+        },
         managerList: [
 
         ],
@@ -27,6 +34,13 @@ const admin = {
                 ...state.addManagerParams,
                 ...data,
             }
+        },
+        set_userInfo11(state,text){
+            state.userInfo1.email=text.email
+            state.userInfo1.id=text.userName
+            state.userInfo1.password=text.password
+            state.userInfo1.phone=text.phoneNumber
+            state.userInfo1.type=text.userType
         }
     },
     actions: {
@@ -50,6 +64,7 @@ const admin = {
                 message.error('添加失败')
             }
         }
+
     }
 }
 export default admin

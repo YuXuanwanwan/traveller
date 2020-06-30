@@ -30,5 +30,21 @@
         <result column="hotel_id" property="hotelId"></result>
     </resultMap>
 
+    <update id="updatePrice">
+        update Room set price=#{price} where id=#{id}
+    </update>
+
+    <update id="updateNum">
+        update Room set curNum=curNum+#{total}-total,total=#{total} where id=#{id}
+    </update>
+
+    <delete id="deleteRoom" parameterType="com.example.hotel.po.HotelRoom">
+        delete from Room where id=#{id}
+    </delete>
+
+    <select id="getRoomById" resultMap="room">
+        select * from Room where id=#{id}
+    </select>
+
 
 </mapper>

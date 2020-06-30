@@ -26,4 +26,27 @@ public interface OrderMapper {
 
     Order getOrderById(@Param("orderid") int orderid);
 
+    List<Order> getHotelOrders(@Param("hotelId") Integer hotelId);
+
+    List<Order> getHotelAbOrders(@Param("hotelId") Integer hotelId);
+
+
+    int checkIn(@Param("id") int id);
+
+    int checkOut(@Param("id") int id);
+
+    int updateOutTime(@Param("id") int id,@Param("checkOutDate") String outdate);
+
+    int updateToday(@Param("today")String today);
+
+    int getValue(@Param("id")int id);
+
+    int getUserId(@Param("id")int id);
+
+    List<Integer> getLateUserId(@Param("today")String today);
+
+    List<Double> getLateCredit(@Param("today")String today);
+
+    int updateCheckout(@Param("id")int id,@Param("checkOutDate")String checkOutDate,@Param("checkInDate")String checkInDate);
+
 }

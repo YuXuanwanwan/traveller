@@ -1,6 +1,9 @@
 package com.example.hotel.bl.hotel;
 
+import com.example.hotel.po.Coupon;
 import com.example.hotel.po.HotelRoom;
+import com.example.hotel.vo.ResponseVO;
+import com.sun.org.apache.regexp.internal.RE;
 
 import java.util.List;
 
@@ -34,4 +37,33 @@ public interface RoomService {
      * @return
      */
     int getRoomCurNum(Integer hotelId, String roomType);
+
+    /**
+     * 获取指定酒店的房间
+     * @param  hotelId
+     * @return
+     * @author gjbe
+     */
+    List<HotelRoom> getHotelAllRoom(Integer hotelId);
+
+    /**
+     * 更改房间价格
+     * @param  id
+     * @author gjbe
+     */
+    ResponseVO updateRoomPriceInfo(int id, double price);
+
+    /**
+     * 更改房间数量
+     * @param  id
+     * @author gjbe
+     */
+    ResponseVO updateRoomNumInfo(int id, Integer num);
+
+    /**
+     * 删除房间
+     * @param  id
+     * @author gjbe
+     */
+    ResponseVO deleteRoom(int id);
 }

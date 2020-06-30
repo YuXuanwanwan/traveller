@@ -6,6 +6,7 @@ const api = {
 export function loginAPI(data){
     return axios({
         url:`${api.userPre}/login`,
+        timeout: 5000,//登陆超时时间限制
         method: 'POST',
         data
     })

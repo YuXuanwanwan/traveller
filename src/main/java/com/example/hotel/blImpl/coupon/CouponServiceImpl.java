@@ -21,6 +21,7 @@ public class CouponServiceImpl implements CouponService {
     private final  TargetMoneyCouponStrategyImpl targetMoneyCouponStrategy;
 
     private final  TimeCouponStrategyImpl timeCouponStrategy;
+    private final  TargetRoomCouponStrategyImpl targetRoomCouponStrategy;
     private final CouponMapper couponMapper;
 
     private static List<CouponMatchStrategy> strategyList = new ArrayList<>();
@@ -28,13 +29,16 @@ public class CouponServiceImpl implements CouponService {
     @Autowired
     public CouponServiceImpl(TargetMoneyCouponStrategyImpl targetMoneyCouponStrategy,
                              TimeCouponStrategyImpl timeCouponStrategy,
-                             CouponMapper couponMapper) {
+                             TargetRoomCouponStrategyImpl targetRoomCouponStrategy, CouponMapper couponMapper) {
+        this.targetRoomCouponStrategy = targetRoomCouponStrategy;
         this.couponMapper = couponMapper;
         this.targetMoneyCouponStrategy = targetMoneyCouponStrategy;
         this.timeCouponStrategy = timeCouponStrategy;
         strategyList.add(targetMoneyCouponStrategy);
         strategyList.add(timeCouponStrategy);
+        strategyList.add(targetRoomCouponStrategy);
     }
+
 
 
 
@@ -71,6 +75,8 @@ public class CouponServiceImpl implements CouponService {
         coupon.setTargetMoney(couponVO.getTargetMoney());
         coupon.setHotelId(couponVO.getHotelId());
         coupon.setDiscountMoney(couponVO.getDiscountMoney());
+        coupon.setStartTime(couponVO.getStartTime());
+        coupon.setEndTime(couponVO.getEndTime());
         coupon.setStatus(1);
         int result = couponMapper.insertCoupon(coupon);
         couponVO.setId(result);

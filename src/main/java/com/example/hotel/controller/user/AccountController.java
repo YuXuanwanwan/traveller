@@ -2,6 +2,7 @@ package com.example.hotel.controller.user;
 
 import com.example.hotel.bl.user.AccountService;
 import com.example.hotel.po.User;
+import com.example.hotel.util.ServiceException;
 import com.example.hotel.vo.UserForm;
 import com.example.hotel.vo.ResponseVO;
 import com.example.hotel.vo.UserInfoVO;
@@ -25,7 +26,6 @@ public class AccountController {
             return ResponseVO.buildFailure(ACCOUNT_INFO_ERROR);
         }
         return ResponseVO.buildSuccess(user);
-
     }
 
     @PostMapping("/register")
@@ -46,7 +46,11 @@ public class AccountController {
     @PostMapping("/{id}/userInfo/update")
     public ResponseVO updateInfo(@RequestBody UserInfoVO userInfoVO,@PathVariable int id){
         return accountService.updateUserInfo(id,userInfoVO.getPassword(),userInfoVO.getUserName(),userInfoVO.getPhoneNumber());
-
     }
 
+    //扣除信用值
+    @GetMapping("/minusCredit")
+    public ResponseVO minusCredit(@RequestParam("userID") int userID,@RequestParam("credit") double credit) throws ServiceException {
+        return accountService.minusCredit(userID,credit);
+    }
 }

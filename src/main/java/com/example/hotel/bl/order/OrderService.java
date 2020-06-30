@@ -39,4 +39,46 @@ public interface OrderService {
      */
     ResponseVO annulOrder(int orderid);
 
+    /**
+     * 获得指定宾馆所有订单
+     * @hotelId
+     * @return
+     * @author gjbe
+     */
+    List<Order> getHotelAllOrders(Integer hotelId);
+
+    /**
+     * 获得指定宾馆异常订单
+     * @hotelId
+     * @return
+     * @author gjbe
+     */
+    List<Order> getHotelAbOrders(Integer hotelId);
+
+    /**
+     * 入住
+     * @param id
+     * @return
+     * @author gjbe
+     */
+    ResponseVO checkIn(int id);
+
+    /**
+     * 退房
+     * @param id
+     * @return
+     * @author gjbe
+     */
+    ResponseVO checkOut(int id);
+
+    /**
+     * 预计退房时间
+     * @param id
+     * @return
+     * @author gjbe
+     */
+    ResponseVO updateCheckout(int id,String checkOutDate);
+
+
+
 }

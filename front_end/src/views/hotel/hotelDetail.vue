@@ -8,31 +8,35 @@
                 <div class="hotel-info">
                     <a-card style="width: 240px">
                         <img
-                            alt="example"
-                            src="@/assets/cover.jpeg"
-                            slot="cover"
-                            referrerPolicy="no-referrer"
-                            />
+                                alt="example"
+                                src="@/assets/cover.jpeg"
+                                slot="cover"
+                                referrerPolicy="no-referrer"
+                        />
                     </a-card>
                     <div class="info">
                         <div class="items" v-if="currentHotelInfo.name">
                             <span class="label">酒店名称：</span>
-                            <span class="value">{{ currentHotelInfo.name }}</span>
+                            <span class="name">{{ currentHotelInfo.name }}</span>
                         </div>
                         <div class="items" v-if="currentHotelInfo.address">
-                            <span class="label">地址</span>
+                            <span class="label">地址:</span>
                             <span class="value">{{ currentHotelInfo.address }}</span>
                         </div>
                         <div class="items" v-if="currentHotelInfo.rate">
-                            <span class="label">评分:</span> 
+                            <span class="label">评分:</span>
                             <span class="value">{{ currentHotelInfo.rate }}</span>
                         </div>
                         <div class="items" v-if="currentHotelInfo.hotelStar">
-                            <span class="label">星级:</span> 
-                            <a-rate style="font-size: 15px" :value="currentHotelInfo.rate" disabled allowHalf/>
+                            <span class="label">星级:</span>
+                            <a-rate v-if="currentHotelInfo.hotelStar=='One'" style="font-size: 15px" :value=1 disabled allowHalf/>
+                            <a-rate v-if="currentHotelInfo.hotelStar=='Two'" style="font-size: 15px" :value=2 disabled allowHalf/>
+                            <a-rate v-if="currentHotelInfo.hotelStar=='Three'" style="font-size: 15px" :value=3 disabled allowHalf/>
+                            <a-rate v-if="currentHotelInfo.hotelStar=='Four'" style="font-size: 15px" :value=4 disabled allowHalf/>
+                            <a-rate v-if="currentHotelInfo.hotelStar=='Five'" style="font-size: 15px" :value=5 disabled allowHalf/>
                         </div>
                         <div class="items" v-if="currentHotelInfo.description">
-                            <span class="label">酒店简介:</span> 
+                            <span class="label">酒店简介:</span>
                             <span class="value">{{ currentHotelInfo.description }}</span>
                         </div>
                     </div>
@@ -43,7 +47,7 @@
                         <RoomList :rooms="currentHotelInfo.rooms"></RoomList>
                     </a-tab-pane>
                     <a-tab-pane tab="酒店详情" key="2">
-
+                        <span class="value">{{ currentHotelInfo.description }}</span>
                     </a-tab-pane>
                 </a-tabs>
             </div>
@@ -51,41 +55,41 @@
     </a-layout>
 </template>
 <script>
-import { mapGetters, mapActions, mapMutations } from 'vuex'
-import RoomList from './components/roomList'
-export default {
-    name: 'hotelDetail',
-    components: {
-        RoomList,
-    },
-    data() {
-        return {
+    import { mapGetters, mapActions, mapMutations } from 'vuex'
+    import RoomList from './components/roomList'
+    export default {
+        name: 'hotelDetail',
+        components: {
+            RoomList,
+        },
+        data() {
+            return {
 
+            }
+        },
+        computed: {
+            ...mapGetters([
+                'currentHotelInfo',
+            ])
+        },
+        mounted() {
+            this.set_currentHotelId(Number(this.$route.params.hotelId))
+            this.getHotelById()
+        },
+        beforeRouteUpdate(to, from, next) {
+            this.set_currentHotelId(Number(to.params.hotelId))
+            this.getHotelById()
+            next()
+        },
+        methods: {
+            ...mapMutations([
+                'set_currentHotelId',
+            ]),
+            ...mapActions([
+                'getHotelById'
+            ])
         }
-    },
-    computed: {
-        ...mapGetters([
-            'currentHotelInfo',
-        ])
-    },
-    mounted() {
-        this.set_currentHotelId(Number(this.$route.params.hotelId))
-        this.getHotelById()
-    },
-    beforeRouteUpdate(to, from, next) {
-        this.set_currentHotelId(Number(to.params.hotelId))
-        this.getHotelById()
-        next()
-    },
-    methods: {
-        ...mapMutations([
-            'set_currentHotelId',
-        ]),
-        ...mapActions([
-            'getHotelById'
-        ])
     }
-}
 </script>
 <style scoped lang="less">
     .hotelDetailCard {
@@ -108,8 +112,12 @@ export default {
                     margin-right: 10px;
                     font-size: 18px;
                 }
+                .name{
+                    margin-right: 15px;
+                    font-size: 18px;
+                }
                 .value {
-                    margin-right: 15px
+                    margin-right: 15px;
                 }
             }
         }

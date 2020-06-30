@@ -20,11 +20,14 @@ public class CouponController {
 
         CouponVO couponVO = couponService.addHotelTargetMoneyCoupon(hotelTargetMoneyCouponVO);
 
+        System.out.print(hotelTargetMoneyCouponVO.getStartTime());
+
         return ResponseVO.buildSuccess(couponVO);
     }
 
     @GetMapping("/hotelAllCoupons")
     public ResponseVO getHotelAllCoupons(@RequestParam Integer hotelId) {
+        System.out.print("coupon!");
         return ResponseVO.buildSuccess(couponService.getHotelAllCoupon(hotelId));
     }
 
