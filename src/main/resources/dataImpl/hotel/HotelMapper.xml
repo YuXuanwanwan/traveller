@@ -20,9 +20,16 @@
 
     <update id="updateHotel">
         update Hotel set hotelName=#{name},address=#{address},bizRegion=#{bizRegion},hotelDescription=#{hotelDescription},hotelStar=#{hotelStar},phoneNum=#{phoneNum}
-        where id=#{id}
+        where id=#{id}``
     </update>
 
+    <delete id="deleteHotel" parameterType="java.lang.Integer">
+        DELETE FROM Hotel WHERE  id= #{id}
+    </delete>
+
+    <delete id="deleterelated_Coupon" parameterType="java.lang.Integer">
+        DELETE FROM Coupon WHERE  hotelId= #{id}
+    </delete>
 
     <resultMap id="Hotel" type="com.example.hotel.vo.HotelVO">
         <id column="id" property="id"></id>

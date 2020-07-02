@@ -31,6 +31,12 @@ public class HotelController {
         return ResponseVO.buildSuccess(true);
     }
 
+    @PostMapping("/deleteHotel")
+    public ResponseVO deleteHotel(@RequestBody HotelVO hotelVO) throws ServiceException {
+        hotelService.deleteHotel(hotelVO);
+        return ResponseVO.buildSuccess(true);
+    }
+
     //列表获取酒店信息
     @GetMapping("/all")
     public ResponseVO retrieveAllHotels(){

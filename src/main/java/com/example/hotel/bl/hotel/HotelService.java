@@ -23,6 +23,13 @@ public interface HotelService {
 
 
     /**
+     * 删除酒店
+     * @param hotelVO
+     * @throws
+     */
+    void deleteHotel(HotelVO hotelVO) throws ServiceException;
+
+    /**
      * 预订酒店修改剩余客房信息
      * @param hotelId
      * @param roomType

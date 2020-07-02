@@ -29,6 +29,20 @@
                     <a-form-item label="信用值" :label-col="{ span: 3 }" :wrapper-col="{ span: 8, offset: 1 }">
                         <span>{{ userInfo.credit }}</span>
                     </a-form-item>
+                    <a-form-item label="会员等级" :label-col="{ span: 3 }" :wrapper-col="{ span: 8, offset: 1 }">
+                        <div v-if="userInfo.credit < 100">
+                            <span>非会员</span>
+                        </div>
+                        <div v-if="(userInfo.credit >= 100)&&(userInfo.credit < 150)">
+                            <span>初级会员</span>
+                        </div>
+                        <div v-if="(userInfo.credit >= 150)&&(userInfo.credit < 200)">
+                            <span>中级会员</span>
+                        </div>
+                        <div v-if="userInfo.credit >= 200">
+                            <span>高级会员</span>
+                        </div>
+                    </a-form-item>
                     <a-form-item label="密码" :label-col="{ span: 3 }" :wrapper-col="{ span: 8, offset: 1 }" v-if="modify">
                         <a-input
                                 placeholder="请输入新密码"
