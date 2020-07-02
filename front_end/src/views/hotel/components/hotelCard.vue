@@ -8,7 +8,7 @@
     />
     <img v-else-if="hotel.id==2"
          alt="example"
-         src="@/assets/rujia.jpg"
+         src="@/assets/Rujia.jpg"
          slot="cover"
          referrerPolicy="no-referrer"
     />
@@ -44,7 +44,7 @@
     />
     <img v-else-if="hotel.id==8"
          alt="example"
-         src="@/assets/jinjiang.jpg"
+         src="@/assets/Jinjiang.jpg"
          slot="cover"
          referrerPolicy="no-referrer"
     />

@@ -1,8 +1,8 @@
 <template>
     <div class="header">
         <div class="label">
-            <img src="@/assets/logo.svg" class="logo" alt="logo" @click="jumpToHome">
-            <span class="title">NJUSE 酒店管理系统</span>
+            <img src="@/assets/logo.png" class="logo" alt="logo" @click="jumpToHome">
+            <span class="title">好订-互联网酒店系统</span>
             
         </div>
         <a-menu v-model="current" mode="horizontal" theme="light">
@@ -62,7 +62,7 @@
                 </a-menu>
             </a-dropdown>
         </div>
-        
+
     </div>
     
 </template>

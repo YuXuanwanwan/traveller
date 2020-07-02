@@ -3,8 +3,8 @@
       <div class="top">
         <div class="header">
           <div>
-            <!-- <img src="@/assets/logo.svg" class="logo" alt="logo"> -->
-            <span class="title">NJU酒店管理</span>
+             <img src="@/assets/logo.png" class="logo" alt="logo">
+            <span class="title">好订-互联网酒店系统</span>
           </div>
         </div>
         <div class="desc">
