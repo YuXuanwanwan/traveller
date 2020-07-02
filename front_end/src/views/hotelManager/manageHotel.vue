@@ -27,23 +27,27 @@
                     <span slot="action" slot-scope="record">
 
 
-                        <a-button type="primary" size="small" @click="manageRoom(record)">房间管理</a-button>
-                        <a-divider type="vertical"></a-divider>
+                        <a-row class="row" type="flex">
+                            <a-button type="primary" size="small" @click="manageRoom(record)">房间管理</a-button>
+                            <a-divider type="vertical"></a-divider>
 
-                        <a-button type="info" size="small" @click="manageOrder(record.id)">订单管理</a-button>
-                        <a-divider type="vertical"></a-divider>
+                            <a-button type="info" size="small" @click="manageOrder(record.id)">入住办理</a-button>
+                            <a-divider type="vertical"></a-divider>
 
-                        <a-button type="danger" size="small" @click="showDrawer(record.id)">异常订单</a-button>
-                        <a-divider type="vertical"></a-divider>
+                            <a-button type="danger" size="small" @click="showDrawer(record.id)">异常订单</a-button>
+                            <a-divider type="vertical"></a-divider>
+                        </a-row>
 
-                        <a-button type="info" size="small" @click="showCoupon(record)">优惠策略</a-button>
-                        <a-divider type="vertical"></a-divider>
+                        <a-row class="row" type="flex">
+
+                            <a-button type="primary" size="small" @click="showCoupon(record)">优惠策略</a-button>
+                            <a-divider type="vertical"></a-divider>
 
 
-                        <a-button type="info" size="small" @click="manageHotel(record)">维护</a-button>
-                        <a-divider type="vertical"></a-divider>
-                        <a-button type="info" size="small"  @click="delete_Hotel(record)">删除酒店</a-button>
-
+                            <a-button type="info" size="small" @click="manageHotel(record)">维护信息</a-button>
+                            <a-divider type="vertical"></a-divider>
+                            <a-button type="danger" size="small"  @click="delete_Hotel(record)">删除酒店</a-button>
+                        </a-row>
                     </span>
                 </a-table>
                 </transition>
@@ -226,6 +230,9 @@
             justify-content: space-between;
             margin-top: 20px
         }
+    }
+    .row {
+        height: 28px;
     }
 </style>
 <style lang="less">

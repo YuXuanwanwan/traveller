@@ -6,7 +6,7 @@
                     {{ currentHotelInfo.title }}
                 </h1>
                 <div class="hotel-info">
-                    <a-card style="width: 240px">
+                    <a-card hoverable class="hotelCard ant-col-xs-7 ant-col-lg-5 ant-col-xxl-3">
                         <img v-if="currentHotelInfo.id==1"
                              alt="example"
                              src="@/assets/hanting.jpg"
@@ -39,31 +39,31 @@
                         />
                         <img v-else-if="currentHotelInfo.id==6"
                              alt="example"
-                             src="@/assets/suzhou.jpg"
+                             src="@/assets/W.jpg"
                              slot="cover"
                              referrerPolicy="no-referrer"
                         />
                         <img v-else-if="currentHotelInfo.id==7"
                              alt="example"
-                             src="@/assets/weisite.jpg"
+                             src="@/assets/shuxiang.jpg"
                              slot="cover"
                              referrerPolicy="no-referrer"
                         />
                         <img v-else-if="currentHotelInfo.id==8"
                              alt="example"
-                             src="@/assets/lifeng.jpg"
+                             src="@/assets/jinjiang.jpg"
                              slot="cover"
                              referrerPolicy="no-referrer"
                         />
                         <img v-else-if="currentHotelInfo.id==9"
                              alt="example"
-                             src="@/assets/dongjing.jpg"
+                             src="@/assets/xinjiyuan.jpg"
                              slot="cover"
                              referrerPolicy="no-referrer"
                         />
                         <img v-else
                              alt="example"
-                             src="@/assets/rujia.jpg"
+                             src="@/assets/dongjing.jpg"
                              slot="cover"
                              referrerPolicy="no-referrer"
                         />
@@ -174,6 +174,14 @@
                     margin-right: 15px;
                 }
             }
+        }
+    }
+    .hotelCard {
+        margin: 10px 10px;
+        min-width: 180px;
+        max-height: 350px;
+        img {
+            height: 250px;
         }
     }
 </style>

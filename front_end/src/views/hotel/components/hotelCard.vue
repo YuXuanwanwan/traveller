@@ -32,31 +32,31 @@
     />
     <img v-else-if="hotel.id==6"
          alt="example"
-         src="@/assets/suzhou.jpg"
+         src="@/assets/W.jpg"
          slot="cover"
          referrerPolicy="no-referrer"
     />
     <img v-else-if="hotel.id==7"
          alt="example"
-         src="@/assets/weisite.jpg"
+         src="@/assets/shuxiang.jpg"
          slot="cover"
          referrerPolicy="no-referrer"
     />
     <img v-else-if="hotel.id==8"
          alt="example"
-         src="@/assets/lifeng.jpg"
+         src="@/assets/jinjiang.jpg"
          slot="cover"
          referrerPolicy="no-referrer"
     />
     <img v-else-if="hotel.id==9"
          alt="example"
-         src="@/assets/dongjing.jpg"
+         src="@/assets/xinjiyuan.jpg"
          slot="cover"
          referrerPolicy="no-referrer"
     />
     <img v-else
          alt="example"
-         src="@/assets/rujia.jpg"
+         src="@/assets/dongjing.jpg"
          slot="cover"
          referrerPolicy="no-referrer"
     />
