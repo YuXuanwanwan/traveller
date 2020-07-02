@@ -70,6 +70,12 @@ public class HotelServiceImpl implements HotelService {
     }
 
     @Override
+    public void deleteHotel(HotelVO hotelVO) throws ServiceException {
+        hotelMapper.deleteHotel(hotelVO.getId());
+        hotelMapper.deleterelated_Coupon(hotelVO.getId());
+    }
+
+    @Override
     public void updateRoomInfo(Integer hotelId, String roomType, Integer rooms) {
         roomService.updateRoomInfo(hotelId,roomType,rooms);
     }

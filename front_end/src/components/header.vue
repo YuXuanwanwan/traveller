@@ -28,7 +28,18 @@
         <div class="logout">
             <a-dropdown placement="bottomCenter">
                 <div class="user">
-                    <a-avatar src="https://lililizi.oss-cn-beijing.aliyuncs.com/%E4%B8%89%E6%98%8E%E6%B2%BB.png"></a-avatar>
+                    <div v-if="userInfo.userType === 'HotelManager'">
+                        <a-avatar src="https://lililizi.oss-cn-beijing.aliyuncs.com/color_%E9%85%92%E5%BA%97.png"></a-avatar>
+                    </div>
+                    <div v-if="userInfo.userType === 'Manager'">
+                        <a-avatar src="https://lililizi.oss-cn-beijing.aliyuncs.com/90-%E7%9A%87%E5%86%A0%20%281%29.png"></a-avatar>
+                    </div>
+                    <div v-if="userInfo.userType === 'Marketer'">
+                        <a-avatar src="https://lililizi.oss-cn-beijing.aliyuncs.com/%E8%90%A5%E9%94%80%E5%91%98.png"></a-avatar>
+                    </div>
+                    <div v-if="userInfo.userType === 'Client'">
+                        <a-avatar src="https://lililizi.oss-cn-beijing.aliyuncs.com/%E4%BA%BA.png"></a-avatar>
+                    </div>
                     <span style="font-size: 14px">{{ userInfo.userName }}</span>
                     <a-icon style="margin-left: 3px; font-size: 16px" type="down"></a-icon>
                 </div>

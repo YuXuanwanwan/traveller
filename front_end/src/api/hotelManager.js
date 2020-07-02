@@ -48,4 +48,10 @@ export function submitManageNumParamsAPI(data){
 
 
 
-
+export function deleteHotelAPI(data){
+    return axios({
+        url: `${api.hotelPre}/deleteHotel`,
+        method: 'POST',
+        data,
+    })
+}

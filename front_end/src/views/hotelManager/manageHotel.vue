@@ -41,6 +41,8 @@
 
 
                         <a-button type="info" size="small" @click="manageHotel(record)">维护</a-button>
+                        <a-divider type="vertical"></a-divider>
+                        <a-button type="info" size="small"  @click="delete_Hotel(record)">删除酒店</a-button>
 
                     </span>
                 </a-table>
@@ -64,7 +66,8 @@
     import ManageHotelModal from "./components/manageHotelModal";
     import manageOrder from "./components/manageOrder";
     import roomModal from "./components/roomModal";
-
+    import {deleteHotelAPI} from '@/api/hotelManager';
+    import {message} from "ant-design-vue";
     const moment = require('moment')
     const columns1 = [
         {
@@ -203,6 +206,13 @@
                 this.set_orderVisible(true)
                 this.getManagedOrders()
             },
+            delete_Hotel(record){
+                console.log(record)
+                deleteHotelAPI({id:record.id}).then(res => {
+                    this.getMgrHotelList(this.userId)
+                    message.success('删除成功')
+                })
+            }
         }
     }
 </script>
