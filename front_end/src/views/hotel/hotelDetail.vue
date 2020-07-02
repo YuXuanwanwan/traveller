@@ -7,11 +7,65 @@
                 </h1>
                 <div class="hotel-info">
                     <a-card style="width: 240px">
-                        <img
-                                alt="example"
-                                src="@/assets/cover.jpeg"
-                                slot="cover"
-                                referrerPolicy="no-referrer"
+                        <img v-if="currentHotelInfo.id==1"
+                             alt="example"
+                             src="@/assets/hanting.jpg"
+                             slot="cover"
+                             referrerPolicy="no-referrer"
+                        />
+                        <img v-else-if="currentHotelInfo.id==2"
+                             alt="example"
+                             src="@/assets/rujia.jpg"
+                             slot="cover"
+                             referrerPolicy="no-referrer"
+                        />
+                        <img v-else-if="currentHotelInfo.id==3"
+                             alt="example"
+                             src="@/assets/jinling.jpg"
+                             slot="cover"
+                             referrerPolicy="no-referrer"
+                        />
+                        <img v-else-if="currentHotelInfo.id==4"
+                             alt="example"
+                             src="@/assets/nanda.jpg"
+                             slot="cover"
+                             referrerPolicy="no-referrer"
+                        />
+                        <img v-else-if="currentHotelInfo.id==5"
+                             alt="example"
+                             src="@/assets/qitian.jpg"
+                             slot="cover"
+                             referrerPolicy="no-referrer"
+                        />
+                        <img v-else-if="currentHotelInfo.id==6"
+                             alt="example"
+                             src="@/assets/suzhou.jpg"
+                             slot="cover"
+                             referrerPolicy="no-referrer"
+                        />
+                        <img v-else-if="currentHotelInfo.id==7"
+                             alt="example"
+                             src="@/assets/weisite.jpg"
+                             slot="cover"
+                             referrerPolicy="no-referrer"
+                        />
+                        <img v-else-if="currentHotelInfo.id==8"
+                             alt="example"
+                             src="@/assets/lifeng.jpg"
+                             slot="cover"
+                             referrerPolicy="no-referrer"
+                        />
+                        <img v-else-if="currentHotelInfo.id==9"
+                             alt="example"
+                             src="@/assets/dongjing.jpg"
+                             slot="cover"
+                             referrerPolicy="no-referrer"
+                        />
+                        <img v-else
+                             alt="example"
+                             src="@/assets/rujia.jpg"
+                             slot="cover"
+                             referrerPolicy="no-referrer"
                         />
                     </a-card>
                     <div class="info">

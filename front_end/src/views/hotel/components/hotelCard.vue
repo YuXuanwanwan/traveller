@@ -1,10 +1,64 @@
 <template>
   <a-card hoverable class="hotelCard ant-col-xs-7 ant-col-lg-5 ant-col-xxl-3">
-    <img
-            alt="example"
-            src="@/assets/cover.jpeg"
-            slot="cover"
-            referrerPolicy="no-referrer"
+    <img v-if="hotel.id==1"
+         alt="example"
+         src="@/assets/hanting.jpg"
+         slot="cover"
+         referrerPolicy="no-referrer"
+    />
+    <img v-else-if="hotel.id==2"
+         alt="example"
+         src="@/assets/rujia.jpg"
+         slot="cover"
+         referrerPolicy="no-referrer"
+    />
+    <img v-else-if="hotel.id==3"
+         alt="example"
+         src="@/assets/jinling.jpg"
+         slot="cover"
+         referrerPolicy="no-referrer"
+    />
+    <img v-else-if="hotel.id==4"
+         alt="example"
+         src="@/assets/nanda.jpg"
+         slot="cover"
+         referrerPolicy="no-referrer"
+    />
+    <img v-else-if="hotel.id==5"
+         alt="example"
+         src="@/assets/qitian.jpg"
+         slot="cover"
+         referrerPolicy="no-referrer"
+    />
+    <img v-else-if="hotel.id==6"
+         alt="example"
+         src="@/assets/suzhou.jpg"
+         slot="cover"
+         referrerPolicy="no-referrer"
+    />
+    <img v-else-if="hotel.id==7"
+         alt="example"
+         src="@/assets/weisite.jpg"
+         slot="cover"
+         referrerPolicy="no-referrer"
+    />
+    <img v-else-if="hotel.id==8"
+         alt="example"
+         src="@/assets/lifeng.jpg"
+         slot="cover"
+         referrerPolicy="no-referrer"
+    />
+    <img v-else-if="hotel.id==9"
+         alt="example"
+         src="@/assets/dongjing.jpg"
+         slot="cover"
+         referrerPolicy="no-referrer"
+    />
+    <img v-else
+         alt="example"
+         src="@/assets/rujia.jpg"
+         slot="cover"
+         referrerPolicy="no-referrer"
     />
     <a-tooltip :title="hotel.title" placement="top">
       <a-card-meta :title="hotel.name">
