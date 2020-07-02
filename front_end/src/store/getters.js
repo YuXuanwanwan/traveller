@@ -46,6 +46,10 @@ const getters = {
   managePriceVisible: state => state.hotelManager.managePriceVisible,
   manageNumVisible: state => state.hotelManager.manageNumVisible,
   checkOutDateVisible:state=> state.hotelManager.checkOutDateVisible,
+  //marketer
+  marketerHotelId: state => state.marketer.marketerHotelId,
+  marketerCouponList: state => state.marketer.marketerCouponList,
+  addWebStrategyModalVisible:state => state.marketer.addWebStrategyModalVisible,
 
 
 

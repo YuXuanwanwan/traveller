@@ -44,11 +44,7 @@ CREATE TABLE `Coupon` (
 --
 -- Dumping data for table `Coupon`
 --
-BEGIN;
-/*!40000 ALTER TABLE `Coupon` DISABLE KEYS */;
-INSERT INTO `Coupon` VALUES (2,'满500-100优惠',2,3,'满减优惠券',500,0,1,NULL,NULL,100);
-/*!40000 ALTER TABLE `Coupon` ENABLE KEYS */;
-COMMIT;
+
 
 --
 -- Table structure for table `Hotel`
@@ -77,10 +73,10 @@ CREATE TABLE `Hotel` (
 
 BEGIN;
 /*!40000 ALTER TABLE `Hotel` DISABLE KEYS */;
-INSERT INTO `Hotel` VALUES (1,'汉庭酒店(新街口地铁站店)','南京市鼓楼区管家桥47号','南京','新街口','Three',1829373819,3.8,1),(2,'如家酒店(新街口中心店)','南京市秦淮区淮海路36号','南京','新街口','Four',1829373819,4.4,1),(3,'金陵饭店','南京市新街口汉中路2号','南京','新街口','Five',1829373819,4.9,1),(4,'南大国际会议中心','
-南京市栖霞区仙林大道163号','南京','仙林中心','Five',1829553719,4.9,6),(5,'七天酒店(浦东国际机场店)','
-上海市浦东新区川沙路3488号','浦东新区','浦东机场','Three',1829553719,4.1,6),(6,'苏州W酒店','
-苏州市星港街与苏惠路交叉口苏州中心7栋','苏州','东方之门','Five',1829553719,4.7,6);
+INSERT INTO `Hotel` VALUES (1,'汉庭酒店','南京市鼓楼区管家桥47号','南京','新街口','Three',1829373819,3.8,1),(2,'如家酒店','南京市秦淮区淮海路36号','南京','新街口','Three',1829373819,4.4,1),(3,'金陵饭店','南京市新街口汉中路2号','南京','新街口','Five',1829373819,4.9,1),(4,'南大国际会议中心','
+南京市栖霞区仙林大道163号','南京','仙林中心','Five',1829553719,4.9,6),(5,'七天酒店','
+上海市浦东新区川沙路3488号','浦东新区','浦东机场','Three',1829553719,4.1,6),(6,'W酒店','
+苏州市星港街与苏惠路交叉口苏州中心7栋','苏州','东方之门','Five',1829553719,4.7,6),(7,'书香世家酒店','南京市鼓楼区管家桥65号','南京','新街口','Four',1829373819,4.8,1),(8,'锦江之星','南京市秦淮区中山南路219号','南京','新街口','Three',1829373819,3.9,1),(9,'新纪元大酒店','南京市鼓楼区中山路251-1号','南京','新街口','Four',1829373819,4.4,1);
 /*!40000 ALTER TABLE `Hotel` ENABLE KEYS */;
 COMMIT;
 
@@ -142,7 +138,7 @@ CREATE TABLE `Room` (
 
 BEGIN;
 /*!40000 ALTER TABLE `Room` DISABLE KEYS */;
-INSERT INTO `Room` VALUES (1,199,20,20,1,'BigBed'),(2,299,30,30,1,'DoubleBed'),(3,399,10,10,1,'Family'),(4,399,10,10,2,'Family'),(5,699,30,30,3,'DoubleBed'),(6,599,20,20,3,'BigBed'),(7,399,20,20,4,'BigBed'),(8,499,30,30,4,'DoubleBed'),(9,399,10,10,5,'Family'),(10,999,10,10,6,'Family');
+INSERT INTO `Room` VALUES (1,199,20,20,1,'BigBed'),(2,299,30,30,1,'DoubleBed'),(3,399,10,10,1,'Family'),(4,399,10,10,2,'Family'),(5,699,30,30,3,'DoubleBed'),(6,599,20,20,3,'BigBed'),(7,399,20,20,4,'BigBed'),(8,499,30,30,4,'DoubleBed'),(9,399,10,10,5,'Family'),(10,999,10,10,6,'Family'),(11,399,20,20,7,'BigBed'),(12,499,30,30,7,'DoubleBed'),(13,199,30,30,8,'DoubleBed'),(14,399,10,10,9,'Family');
 /*!40000 ALTER TABLE `Room` ENABLE KEYS */;
 COMMIT;
 
@@ -171,7 +167,7 @@ CREATE TABLE `User` (
 
 BEGIN;
 /*!40000 ALTER TABLE `User` DISABLE KEYS */;
-INSERT INTO `User` VALUES (1,'hm1@qq.com','123456','酒店管理1','1829373819',100,'HotelManager'),(4,'wm1@qq.com','123456','网站管理','12345678919',100,'Manager'),(5,'user1@qq.com','123456','客户1','12345678911',100,'Client'),(6,'hm2@qq.com','123456','酒店管理2','1829553719',100,'HotelManager');
+INSERT INTO `User` VALUES (1,'hotel1@qq.com','123456','酒店管理1','1829373819',100,'HotelManager'),(4,'manager1@qq.com','123456','网站管理1','12345678919',100,'Manager'),(5,'client1@qq.com','123456','客户1','12345678911',100,'Client'),(6,'hotel2@qq.com','123456','酒店管理2','1829553719',100,'HotelManager'),(2,'marketer1@qq.com','123456','网站营销1','1829553719',100,'Marketer');
 /*!40000 ALTER TABLE `User` ENABLE KEYS */;
 COMMIT;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

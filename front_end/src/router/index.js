@@ -44,6 +44,11 @@ const routes = [
         name: 'manageUser',
         component: () => import('@/views/admin/manageUser')
       },
+      {
+        path: '/marketer/marketing',
+        name: 'marketing',
+        component: () => import('@/views/marketer/marketing')
+      },
     ]
   },
 ]

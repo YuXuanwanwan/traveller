@@ -32,3 +32,11 @@ export function orderMatchCouponsAPI(params) {
         params,
     })
 }
+
+export function hotelMultiplyRoomsAPI(data) {
+    return axios({
+        url: `${api.couponPre}/hotelMultiplyRooms`,
+        method: 'POST',
+        data,
+    })
+}

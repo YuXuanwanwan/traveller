@@ -32,6 +32,11 @@ public class Coupon {
     private double targetMoney;
 
     /**
+     * 房间数目
+     */
+    private Integer roomNum;
+
+    /**
      * 折扣
      */
     private double discount;
@@ -101,6 +106,10 @@ public class Coupon {
     public void setTargetMoney(double targetMoney) {
         this.targetMoney = targetMoney;
     }
+
+    public Integer getRoomNum() { return roomNum; }
+
+    public void setRoomNum(Integer roomNum) { this.roomNum = roomNum; }
 
     public double getDiscountMoney() {
         return discountMoney;

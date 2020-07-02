@@ -1,10 +1,9 @@
 package com.example.hotel.bl.coupon;
 
 import com.example.hotel.po.Coupon;
-import com.example.hotel.vo.CouponVO;
-import com.example.hotel.vo.HotelTargetMoneyCouponVO;
-import com.example.hotel.vo.OrderVO;
+import com.example.hotel.vo.*;
 
+import java.text.ParseException;
 import java.util.List;
 
 public interface CouponService {
@@ -13,7 +12,7 @@ public interface CouponService {
      * @param orderVO
      * @return
      */
-    List<Coupon> getMatchOrderCoupon(OrderVO orderVO);
+    List<Coupon> getMatchOrderCoupon(OrderVO orderVO) throws ParseException;
 
     /**
      * 查看某个酒店提供的所有优惠策略（包括失效的）
@@ -28,4 +27,9 @@ public interface CouponService {
      * @return
      */
     CouponVO addHotelTargetMoneyCoupon(HotelTargetMoneyCouponVO couponVO);
+
+    CouponVO addHotelMultiplyRoomsCoupon(HotelMultiplyRoomsCouponVO couponVO);
+
+    CouponVO addHotelFestivalCoupon(HotelFestivalCouponVO couponVO);
+
 }

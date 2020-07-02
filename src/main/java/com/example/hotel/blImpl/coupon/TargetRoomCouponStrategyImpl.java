@@ -7,6 +7,13 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class TargetRoomCouponStrategyImpl implements CouponMatchStrategy {
+
+    /**
+     * 判断某个订单是否满足某种多间优惠策略
+     * @param orderVO
+     * @param coupon
+     * @return
+     */
     @Override
     public boolean isMatch(OrderVO orderVO, Coupon coupon) {
         try{

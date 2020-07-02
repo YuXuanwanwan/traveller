@@ -16,10 +16,8 @@
                     ]"
                         @change="changeType"
                 >
-                    <a-select-option value="1">生日特惠</a-select-option>
-                    <a-select-option value="2">多间特惠（三间以及以上）</a-select-option>
-                    <a-select-option value="3">合作企业特惠</a-select-option>
-                    <a-select-option value="4">双十一特惠</a-select-option>
+                    <a-select-option value="2">酒店多间特惠（三间以及以上）</a-select-option>
+                    <a-select-option value="3">酒店满减特惠</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="券名" v-bind="formItemLayout">

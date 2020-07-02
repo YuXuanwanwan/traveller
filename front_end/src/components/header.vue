@@ -21,7 +21,12 @@
             </a-menu-item>
             <a-menu-item key="4" @click="selectMenu" v-if="userInfo.userType=='Manager'">
                 <router-link :to="{ name: 'manageUser'}">
-                     <a-icon type="user" />管理
+                     <a-icon type="user" />网站管理
+                </router-link>
+            </a-menu-item>
+            <a-menu-item key="5" @click="selectMenu" v-if="userInfo.userType=='Marketer'">
+                <router-link :to="{ name: 'marketing'}">
+                    <a-icon type="switcher" />营销管理
                 </router-link>
             </a-menu-item>
         </a-menu>

@@ -1,12 +1,11 @@
 package com.example.hotel.controller.coupon;
 
 import com.example.hotel.bl.coupon.CouponService;
-import com.example.hotel.vo.CouponVO;
-import com.example.hotel.vo.HotelTargetMoneyCouponVO;
-import com.example.hotel.vo.OrderVO;
-import com.example.hotel.vo.ResponseVO;
+import com.example.hotel.vo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.text.ParseException;
 
 @RestController
 @RequestMapping("/api/coupon")
@@ -25,6 +24,23 @@ public class CouponController {
         return ResponseVO.buildSuccess(couponVO);
     }
 
+    @PostMapping("/hotelMultiplyRooms")
+    public ResponseVO addHotelMultiplyRoomsCoupon(@RequestBody HotelMultiplyRoomsCouponVO hotelMultiplyRoomsCouponVO) {
+
+        CouponVO couponVO = couponService.addHotelMultiplyRoomsCoupon(hotelMultiplyRoomsCouponVO);
+
+        return ResponseVO.buildSuccess(couponVO);
+    }
+    @PostMapping("/hotelFestival")
+    public ResponseVO addHotelFestivalCoupon(@RequestBody HotelFestivalCouponVO hotelFestivalCouponVO) {
+
+        CouponVO couponVO = couponService.addHotelFestivalCoupon(hotelFestivalCouponVO);
+        return ResponseVO.buildSuccess(couponVO);
+
+    }
+
+
+
     @GetMapping("/hotelAllCoupons")
     public ResponseVO getHotelAllCoupons(@RequestParam Integer hotelId) {
         System.out.print("coupon!");
@@ -37,7 +53,7 @@ public class CouponController {
                                            @RequestParam Double orderPrice,
                                            @RequestParam Integer roomNum,
                                            @RequestParam String checkIn,
-                                           @RequestParam String checkOut) {
+                                           @RequestParam String checkOut) throws ParseException {
         OrderVO requestOrderVO = new OrderVO();
         requestOrderVO.setUserId(userId);
         requestOrderVO.setHotelId(hotelId);
