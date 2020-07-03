@@ -45,7 +45,7 @@
 
     <update id="updateToday">
         update orderlist set orderState='未按时入住'
-        where DATE(#{today}) > DATE(checkOutDate)
+        where DATE(#{today}) > DATE(checkOutDate) and orderState = '已预订'
     </update>
 
     <select id="getValue" resultMap="Order">

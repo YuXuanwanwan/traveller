@@ -33,13 +33,13 @@
                         <div v-if="userInfo.credit < 100">
                             <span>非会员</span>
                         </div>
-                        <div v-if="(userInfo.credit >= 100)&&(userInfo.credit < 150)">
+                        <div v-if="(userInfo.credit >= 100)&&(userInfo.credit < 1000)">
                             <span>初级会员</span>
                         </div>
-                        <div v-if="(userInfo.credit >= 150)&&(userInfo.credit < 200)">
+                        <div v-if="(userInfo.credit >= 1000)&&(userInfo.credit < 5000)">
                             <span>中级会员</span>
                         </div>
-                        <div v-if="userInfo.credit >= 200">
+                        <div v-if="userInfo.credit >= 5000">
                             <span>高级会员</span>
                         </div>
                     </a-form-item>

@@ -49,8 +49,6 @@ public class HotelServiceImpl implements HotelService {
 
     private boolean rateSortJudge = false;
 
-    private boolean starSortJudge = false;
-
     @Override
     public void addHotel(HotelVO hotelVO) throws ServiceException {
         User manager = accountService.getUserInfo(hotelVO.getManagerId());
@@ -91,6 +89,7 @@ public class HotelServiceImpl implements HotelService {
         return hotelMapper.selectAllHotel();
     }
 
+    //按地址和商圈搜索酒店
     @Override
     public List<HotelVO> searchHotels(String address, String bizRegion) throws ServiceException {
         hotelVOList = retrieveHotels();
@@ -109,6 +108,7 @@ public class HotelServiceImpl implements HotelService {
         return hotelVOList;
     }
 
+    //按条件过滤酒店
     @Override
     public List<HotelVO> filterHotels(FilterConditionVO filterConditionVO) throws ServiceException {
         System.out.println(filterConditionVO.getHotelName());
@@ -154,6 +154,7 @@ public class HotelServiceImpl implements HotelService {
         return hotelVOList;
     }
 
+    //按价格排序酒店
     @Override
     public List<HotelVO> priceSortHotels() throws ServiceException {
         hotelVOList.sort(new Comparator<HotelVO>() {
@@ -188,6 +189,7 @@ public class HotelServiceImpl implements HotelService {
         return hotelVOList;
     }
 
+    //按评分排序酒店
     @Override
     public List<HotelVO> rateSortHotels() throws ServiceException {
         hotelVOList.sort(new Comparator<HotelVO>() {

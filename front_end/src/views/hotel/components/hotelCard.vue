@@ -69,6 +69,8 @@
           <a-rate v-if="hotel.hotelStar=='Four'" style="font-size: 15px" :value=4 disabled allowHalf/>
           <a-rate v-if="hotel.hotelStar=='Five'" style="font-size: 15px" :value=5 disabled allowHalf/>
           {{hotel.rate}}分
+          <div></div>
+          {{hotel.description}}
         </template>
       </a-card-meta>
     </a-tooltip>

@@ -127,6 +127,8 @@
 </template>
 <script>
 import { mapGetters, mapMutations, mapActions } from 'vuex'
+import {message} from "ant-design-vue";
+import user from "../../../store/modules/user";
 const moment = require('moment')
 const columns = [
     {  
@@ -181,6 +183,7 @@ export default {
             'currentHotelId',
             'currentHotelInfo',
             'userId',
+            'userInfo',
             'orderMatchCouponList'
         ]),
         
@@ -194,7 +197,8 @@ export default {
         ]),
         ...mapActions([
             'addOrder',
-            'getOrderMatchCoupons'
+            'getOrderMatchCoupons',
+            'getUserInfo'
         ]),
         cancelOrder() {
             this.set_orderModalVisible(false)
@@ -222,25 +226,32 @@ export default {
             }
         },
         handleSubmit(e) {
-            e.preventDefault();
-            this.form.validateFieldsAndScroll((err, values) => {
-                if (!err) {
-                    const data = {
-                        hotelId: this.currentHotelId,
-                        hotelName: this.currentHotelInfo.name,
-                        userId: Number(this.userId),
-                        checkInDate: moment(this.form.getFieldValue('date')[0]).format('YYYY-MM-DD'),
-                        checkOutDate: moment(this.form.getFieldValue('date')[1]).format('YYYY-MM-DD'),
-                        roomType: this.currentOrderRoom.roomType == '大床房' ? 'BigBed' : this.currentOrderRoom.roomType == '双床房' ? 'DoubleBed' : 'Family',
-                        roomNum: this.form.getFieldValue('roomNum'),
-                        peopleNum: this.form.getFieldValue('peopleNum'),
-                        haveChild: this.form.getFieldValue('haveChild'),
-                        createDate: '',
-                        price: this.checkedList.length > 0 ? this.finalPrice: this.totalPrice
+            if(this.userInfo.credit <-1000){
+                console.log(this.userInfo.credit);
+                message.error('预定失败，您的信用值过低，请联系工作人员充值')
+            }
+            else{
+                console.log(this.userInfo.credit);
+                e.preventDefault();
+                this.form.validateFieldsAndScroll((err, values) => {
+                    if (!err) {
+                        const data = {
+                            hotelId: this.currentHotelId,
+                            hotelName: this.currentHotelInfo.name,
+                            userId: Number(this.userId),
+                            checkInDate: moment(this.form.getFieldValue('date')[0]).format('YYYY-MM-DD'),
+                            checkOutDate: moment(this.form.getFieldValue('date')[1]).format('YYYY-MM-DD'),
+                            roomType: this.currentOrderRoom.roomType == '大床房' ? 'BigBed' : this.currentOrderRoom.roomType == '双床房' ? 'DoubleBed' : 'Family',
+                            roomNum: this.form.getFieldValue('roomNum'),
+                            peopleNum: this.form.getFieldValue('peopleNum'),
+                            haveChild: this.form.getFieldValue('haveChild'),
+                            createDate: '',
+                            price: this.checkedList.length > 0 ? this.finalPrice: this.totalPrice
+                        }
+                        this.addOrder(data)
                     }
-                    this.addOrder(data)
-                }
-            });
+                });
+            }
         },
     },
     watch:{
