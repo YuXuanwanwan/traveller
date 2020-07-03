@@ -324,7 +324,6 @@ export default {
             this.addHotelVisible = false
             addHotelManagerAPI({hotelname:this.hotel_from.hotelname,email:this.hotel_from.email}).then(res => {
                 this.getManagerList()
-                message.success('添加成功')
             })
         },
         changeHotelManager(){

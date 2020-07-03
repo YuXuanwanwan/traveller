@@ -26,7 +26,7 @@
                         <a-divider type="vertical"></a-divider>
 
                     <a-popconfirm
-                            title="确定想删除该订单吗？"
+                            title="确定想删除该房型吗？"
                             @confirm="delRoom(record.id)"
                             okText="确定"
                             cancelText="取消"
