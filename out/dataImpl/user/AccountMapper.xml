@@ -3,7 +3,7 @@
 <mapper namespace="com.example.hotel.data.user.AccountMapper">
     <insert id="createNewAccount" parameterType="com.example.hotel.po.User" useGeneratedKeys="true" keyProperty="email">
         insert into User(email,password,username,phonenumber,credit,usertype)
-        values(#{email},#{password},#{userName},#{phoneNumber},#{credit},"Client")
+        values(#{email},#{password},#{username},#{phoneNumber},#{credit},"Client")
     </insert>
     <select id="getAccountByName" resultMap="User">
         select * from User where email=#{email}
@@ -16,6 +16,9 @@
         where id=#{id}
     </update>
 
+    <select id="judge_exist11" parameterType="String" resultType="java.lang.Integer">
+        select COUNT(*) from User where email=#{email}
+    </select>
     <update id="updateCredit">
         update User set credit=credit+#{credit}
         where id=#{id}

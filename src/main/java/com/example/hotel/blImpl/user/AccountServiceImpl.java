@@ -32,13 +32,13 @@ public class AccountServiceImpl implements AccountService {
                 // System.out.println(userVO.getUserType());
             } catch (Exception e) {
                 System.out.println(e.getMessage());
-                return ResponseVO.buildFailure("密码不能超过20位");
+                return ResponseVO.buildFailure("注册失败，密码不能超过11位");
             }
         }
         else{
             return ResponseVO.buildFailure(ACCOUNT_EXIST);
         }
-        return ResponseVO.buildSuccess();
+        return ResponseVO.buildSuccess("注册成功");
     }
 
     @Override

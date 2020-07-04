@@ -152,7 +152,7 @@ DROP TABLE IF EXISTS `User`;
 CREATE TABLE `User` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(255) DEFAULT NULL,
-  `password` varchar(20) NOT NULL,
+  `password` varchar(11) NOT NULL,
   `username` varchar(255) DEFAULT NULL,
   `phonenumber` varchar(255) DEFAULT NULL,
   `credit` double(255,0) DEFAULT NULL,
