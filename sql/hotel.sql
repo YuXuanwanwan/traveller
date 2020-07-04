@@ -152,7 +152,7 @@ DROP TABLE IF EXISTS `User`;
 CREATE TABLE `User` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(255) DEFAULT NULL,
-  `password` varchar(11) NOT NULL,
+  `password` varchar(20) NOT NULL,
   `username` varchar(255) DEFAULT NULL,
   `phonenumber` varchar(255) DEFAULT NULL,
   `credit` double(255,0) DEFAULT NULL,
@@ -167,7 +167,7 @@ CREATE TABLE `User` (
 
 BEGIN;
 /*!40000 ALTER TABLE `User` DISABLE KEYS */;
-INSERT INTO `User` VALUES (1,'hotel1@qq.com','123456','酒店管理1','1829373819',100,'HotelManager'),(4,'manager1@qq.com','123456','网站管理1','12345678919',100,'Manager'),(5,'client1@qq.com','123456','客户1','12345678911',100,'Client'),(6,'hotel2@qq.com','123456','酒店管理2','1829553719',100,'HotelManager'),(2,'marketer1@qq.com','123456','网站营销1','1829553719',100,'Marketer');
+INSERT INTO `User` VALUES (1,'hotel1@qq.com','123456','酒店管理1','1829373819',100,'HotelManager'),(4,'manager1@qq.com','123456','网站管理1','12345678919',100,'Manager'),(5,'client1@qq.com','123456','客户1','12345678911',100,'Client'),(6,'hotel2@qq.com','123456','酒店管理2','1829553719',100,'HotelManager'),(2,'marketer1@qq.com','123456','网站营销1','1829553719',100,'Marketer'),(7,'client2@qq.com','123456','客户2','12345678911',-1001,'Client');
 /*!40000 ALTER TABLE `User` ENABLE KEYS */;
 COMMIT;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

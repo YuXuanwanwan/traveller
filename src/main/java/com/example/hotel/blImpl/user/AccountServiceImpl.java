@@ -32,7 +32,7 @@ public class AccountServiceImpl implements AccountService {
                 // System.out.println(userVO.getUserType());
             } catch (Exception e) {
                 System.out.println(e.getMessage());
-                return ResponseVO.buildFailure(ACCOUNT_EXIST);
+                return ResponseVO.buildFailure("密码不能超过20位");
             }
         }
         else{
