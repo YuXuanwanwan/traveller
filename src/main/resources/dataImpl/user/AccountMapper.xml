@@ -16,6 +16,9 @@
         where id=#{id}
     </update>
 
+    <select id="judge_exist11" parameterType="String" resultType="java.lang.Integer">
+        select COUNT(*) from User where email=#{email}
+    </select>
     <update id="updateCredit">
         update User set credit=credit+#{credit}
         where id=#{id}

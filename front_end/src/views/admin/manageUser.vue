@@ -324,6 +324,9 @@ export default {
             this.addHotelVisible = false
             addHotelManagerAPI({hotelname:this.hotel_from.hotelname,email:this.hotel_from.email}).then(res => {
                 this.getManagerList()
+                if(res==true){
+                    message.success("添加成功")
+                }
             })
         },
         changeHotelManager(){
@@ -354,6 +357,9 @@ export default {
             this.changeManagerVisible=false
             changeHotelManagerAPI({id:this.managerIdChange.id,managerId:this.managerIdChange.managerId}).then(res => {
                 this.searchHotel()
+                if(res==true){
+                    message.success("修改成功")
+                }
             })
         },
         searchHotel_1(){

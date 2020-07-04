@@ -19,6 +19,8 @@ public interface AccountMapper {
      */
      int createNewAccount(User user);
 
+    int judge_exist11(String email);
+
     /**
      * 根据用户名查找账号
      * @param email
